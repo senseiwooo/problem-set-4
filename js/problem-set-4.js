@@ -5,6 +5,7 @@
 function hello() {
 
   // WRITE YOUR EXERCISE 1 CODE HERE
+  document.getElementById("output1").innerHTML="Hello, AP Computer Science Principles!";
 
   ////////////////// DO NOT MODIFY
   check("hello"); // DO NOT MODIFY
@@ -24,7 +25,8 @@ function helloAgain() {
   // Use the name variable declared above to store the user's response. You
   // do not need to re-declare it, only assign it a value.
 
-  // WRITE YOUR EXERCISE 2 CODE HERE
+  name = prompt("What is your name?");
+  document.getElementById("output2").innerHTML=("Hello, " + name + "!");
 
   ///////////////////////////// DO NOT MODIFY
   check("helloAgain", name); // DO NOT MODIFY
@@ -44,7 +46,9 @@ function celsius() {
   // The above code generates a random number between -100 and 1000
   // (inclusive), and rounds this value to 2 decimal places.
 
-  // WRITE YOUR EXERCISE 3 CODE HERE
+  var fahrenheit = ((cels*9)/5 + 32).toFixed(2);
+
+  document.getElementById("output3").innerHTML=cels + " degrees Celsius equals " + fahrenheit + " degrees Fahrenheit.";
 
   ////////////////////////// DO NOT MODIFY
   check("celsius", cels); // DO NOT MODIFY
@@ -64,7 +68,9 @@ function fahrenheit() {
   // The above code generates a random number between -100 and 1000
   // (inclusive), and rounds this value to 2 decimal places.
 
-  // WRITE YOUR EXERCISE 4 CODE HERE
+  var celsius = ((fahr-32)*(5/9)).toFixed(2);
+
+  document.getElementById("output4").innerHTML=fahr + " degrees Fahrenheit equals " + celsius + " degrees Celsius.";
 
   ///////////////////////////// DO NOT MODIFY
   check("fahrenheit", fahr); // DO NOT MODIFY
@@ -75,29 +81,39 @@ function fahrenheit() {
  * Inches. 5 points.
  */
 
-function inches() {
+ function inches() {
 
-  /////////////////////////////////////////////////////// DO NOT MODIFY
-  let input = prompt("Enter a non-negative integer."); // DO NOT MODIFY
-  /////////////////////////////////////////////////////// DO NOT MODIFY
+   /////////////////////////////////////////////////////// DO NOT MODIFY
+   let input = prompt("Enter a non-negative integer."); // DO NOT MODIFY
+   /////////////////////////////////////////////////////// DO NOT MODIFY
 
-  // You are free to modify the value of inches, which you'll likely
-  // need to do. Please do not modify the value of input.
+   // You are free to modify the value of inches, which you'll likely
+   // need to do. Please do not modify the value of input.
 
-  ////////////////////// DO NOT MODIFY
-  let inches = input; // DO NOT MODIFY
-  ////////////////////// DO NOT MODIFY
+   ////////////////////// DO NOT MODIFY
+   let inches = input; // DO NOT MODIFY
+   ////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 5 CODE HERE
+   // WRITE YOUR EXERCISE 5 CODE HERE
+   var miles=Math.floor(inches/63360);
+   var yards=Math.floor((inches - (miles*63360))/36);
+   var feet=Math.floor((inches - (miles*63360) - (yards*36))/12);
+   inches=Math.floor((inches - (miles*63360) - (yards*36) - (feet*12)));
+   document.getElementById("output5").innerHTML=
+   "Miles: " + miles
+   + "<br/>Yards: " + yards +
+   "<br/>Feet: " + feet +
+   "<br/>Inches: " + inches;
 
-  ////////////////////////// DO NOT MODIFY
-  check("inches", input); // DO NOT MODIFY
-  ////////////////////////// DO NOT MODIFY
-}
 
-/*
- * Centimeters. 5 points.
- */
+   ////////////////////////// DO NOT MODIFY
+   check("inches", input); // DO NOT MODIFY
+   ////////////////////////// DO NOT MODIFY
+ }
+
+ /*
+  * Centimeters. 5 points.
+  */
 
 function centimeters() {
 
@@ -112,7 +128,15 @@ function centimeters() {
   let centimeters = input; // DO NOT MODIFY
   /////////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 6 CODE HERE
+  var kilometers=Math.floor (centimeters/100000);
+  var meters=Math.floor ((centimeters - (kilometers*100000))/100);
+  centimeters=Math.floor (centimeters - (kilometers*100000) - (meters*100));
+  document.getElementById("output6").innerHTML=
+  "Kilometers: " + kilometers
+  + "<br/>Meters: " + meters +
+  "<br/>Centimeters: " + centimeters;
+
+
 
   /////////////////////////////// DO NOT MODIFY
   check("centimeters", input); // DO NOT MODIFY
@@ -136,8 +160,18 @@ function fluidOunces() {
   let fluidOunces = input; // DO NOT MODIFY
   /////////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 7 CODE HERE
-
+  //gallons, quarts, pints, cups, and fluid ounces
+  var gallons=Math.floor (fluidOunces/128);
+  var quarts=(Math.floor(fluidOunces - (gallons*128))/32);
+  var pints=Math.floor((fluidOunces - (gallons*128) - (quarts*16))/16);
+  var cups=Math.floor(fluidOunces - (gallons*128) - (quarts*16)/8);
+  fluidOunces=Math.floor(fluidOunces - (gallons*128) - (quarts*32) - (pints*16) - (cups*8));
+  document.getElementByid("output7".innerHTML)=
+  "Gallons: " + gallons +
+  "</br>Quarts: " + quarts +
+  "</br>Pints: " + pints +
+  "</br>Cups: " + cups +
+  "</br>Fluid Ounces: " + fluidOunces;
   /////////////////////////////// DO NOT MODIFY
   check("fluidOunces", input); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
